@@ -1,0 +1,12 @@
+version: "3"
+services:
+  steemulantbot:
+    build: .
+    container_name: steemulantbot
+    user: "node"
+    working_dir: /opt/bot
+    volumes:
+      - ./bot/bot.js:/opt/bot/bot.js
+      - ./bot/discord.json:/opt/bot/discord.json
+    command: node bot.js
+    restart: always
